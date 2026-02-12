@@ -63,6 +63,18 @@ def main():
    }
    prompt = json.dumps(promptJson, ensure_ascii = False)
    print(f">>> PROMPT, {prompt}")
+   
+   model = 'mistral'
+   client = Client(
+      host="http://localhost:11434"
+      )
+   response = client.chat(model=model, messages=[
+               {
+                  'role': 'user',
+                  'content': prompt,
+               },
+         ])
+   print(response.message.content)
 
 if __name__ == "__main__":
    main()

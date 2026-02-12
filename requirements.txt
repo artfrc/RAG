@@ -10,3 +10,4 @@ pdfminer.six==20221105
 unstructured[pdf]==0.14.6
 
 posthog>=2.4.0,<6.0.0
+raglight
