@@ -38,7 +38,7 @@ def embedding_function(all_splits):
    return vector_store
    
 def process_user_input(vector_store):
-         question = "Qual o CPX da doc?"
+         question = "Como faco para criar uma campanha?"
          retrieved_docs = vector_store.similarity_search(question, k=2)
          
          return retrieved_docs, question
@@ -62,7 +62,7 @@ def main():
       "context": docs_content
    }
    prompt = json.dumps(promptJson, ensure_ascii = False)
-   print(f">>> PROMPT, {prompt}")
+   print(f">>> PROMPT, {prompt}\n")
    
    model = 'mistral'
    client = Client(
@@ -74,7 +74,7 @@ def main():
                   'content': prompt,
                },
          ])
-   print(response.message.content)
+   print(f"Resposta:\n {response.message.content}")
 
 if __name__ == "__main__":
    main()
